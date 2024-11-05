@@ -1,0 +1,34 @@
+<!-- library/templates/library/member_list.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Member List{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Member List</h2>
+    <a href="{% url 'add_member' %}" class="btn btn-primary">Add New Member</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.address }}</td>
+                <td>{{ member.contact }}</td>
+                <td>
+                    <a href="{% url 'update_member' member.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_member' member.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

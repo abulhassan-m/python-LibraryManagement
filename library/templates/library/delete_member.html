@@ -1,0 +1,17 @@
+<!-- library/templates/library/delete_member.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Delete Member{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Delete Member</h2>
+    <p>Are you sure you want to delete the member "<strong>{{ member.name }}</strong>"?</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'member_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- library/templates/library/update_member.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Update Member{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Update Member: {{ member.name }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Update Member</button>
+        <a href="{% url 'member_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

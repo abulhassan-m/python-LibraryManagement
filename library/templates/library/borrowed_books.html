@@ -1,0 +1,38 @@
+<!-- library/templates/library/borrowed_books.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Borrowed Books{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Borrowed Books</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Member Name</th>
+                <th>Book Title</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in borrowed_records %}
+            <tr>
+                <td>{{ record.member.name }}</td>
+                <td>{{ record.book.title }}</td>
+                <td>{{ record.issue_date }}</td>
+                <td>{{ record.due_date }}</td>
+                <td>{{ record.return_date|default:"Not Returned" }}</td>
+                <td>
+                    {% if not record.return_date %}
+                        <a href="{% url 'return_book' record.pk %}" class="btn btn-success">Return</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

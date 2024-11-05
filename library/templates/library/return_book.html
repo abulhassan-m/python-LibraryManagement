@@ -1,0 +1,17 @@
+<!-- library/templates/library/return_book.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Return Book{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Return Book</h2>
+    <p>Are you sure you want to return the book "<strong>{{ borrow_record.book.title }}</strong>" borrowed by "<strong>{{ borrow_record.member.name }}</strong>"?</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Return Book</button>
+        <a href="{% url 'borrowed_books' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
