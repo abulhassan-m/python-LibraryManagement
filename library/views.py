@@ -31,19 +31,18 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('landing_page')
+    return redirect('login')
 
 @login_required
-def user_dashboard(request):
-    return render(request, 'library/user_dashboard.html')
-
 def landing_page(request):
     return render(request, 'library/landing_page.html')
 
+@login_required
 def book_list(request):
     books = Book.objects.all()
     return render(request, 'library/book_list.html', {'books': books})
 
+@login_required
 def add_book(request):
     if request.method == "POST":
         form = BookForm(request.POST)
@@ -54,6 +53,7 @@ def add_book(request):
         form = BookForm()
     return render(request, 'library/add_book.html', {'form': form})
 
+@login_required
 def update_book(request, pk):
     book = Book.objects.get(pk=pk)
     if request.method == "POST":
@@ -72,10 +72,12 @@ def delete_book(request, pk):
         return redirect('book_list')
     return render(request, 'library/delete_book.html', {'book': book})
 
+@login_required
 def member_list(request):
     members = Member.objects.all()
     return render(request, 'library/member_list.html', {'members': members})
 
+@login_required
 def add_member(request):
     if request.method == "POST":
         form = MemberForm(request.POST)
@@ -108,7 +110,7 @@ def delete_member(request, pk):
         return redirect('member_list')
     return render(request, 'library/delete_member.html', {'member': member})
 
-
+@login_required
 def borrow_book(request):
     if request.method == 'POST':
         form = BorrowForm(request.POST)
@@ -128,11 +130,13 @@ def borrow_book(request):
     
     return render(request, 'library/borrow_book.html', {'form': form})
 
+@login_required
 def borrowed_books(request):
     borrowed_records = BorrowRecord.objects.filter(return_date__isnull=True)  # Get all borrowed records that haven't been returned
     return render(request, 'library/borrowed_books.html', {'borrowed_records': borrowed_records})
 
 # Return a book
+@login_required
 def return_book(request, pk):
     borrow_record = get_object_or_404(BorrowRecord, pk=pk)
     if request.method == 'POST':
@@ -144,8 +148,7 @@ def return_book(request, pk):
     
     return render(request, 'library/return_book.html', {'borrow_record': borrow_record})
 
-# library/views.py
-
+@login_required
 def book_list(request):
     query = request.GET.get('q', '')
     books = Book.objects.all()
@@ -170,6 +173,7 @@ def report(request):
     }
     return render(request, 'library/report.html', context)
 
+@login_required
 def dashboard(request):
     # Calculate counts and get recent transactions
     total_books = Book.objects.count()

@@ -135,3 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Add this to set the site ID for the authentication framework
 SITE_ID = 1
+
+LOGIN_URL = 'login'

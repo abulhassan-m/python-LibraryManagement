@@ -1,5 +1,6 @@
 # library/urls.py
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -16,8 +17,10 @@ urlpatterns = [
     path('borrowed/', views.borrowed_books, name='borrowed_books'),
     path('return/<int:pk>/', views.return_book, name='return_book'),
     path('register/', views.register, name='register'),
-    path('login/', views.user_login, name='login'),
+    #path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'), 
+    path('login/', views.user_login, name='login'),   
     path('logout/', views.user_logout, name='logout'),
+    # path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('dashboard/', views.dashboard, name='user_dashboard'),
     path('report/', views.report, name='report'),
 ]

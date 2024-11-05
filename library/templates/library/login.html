@@ -1,10 +1,28 @@
-<!-- library/templates/library/login.html -->
-{% extends 'library/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            font-weight: bold;
+            margin: auto;
+            width: 300px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
 
-{% block title %}Login{% endblock %}
-
-{% block content %}
-<h2>Login</h2>
+<h2>Library Management System - Login</h2>
 <form method="POST">
     {% csrf_token %}
     <div class="form-group">
@@ -17,4 +35,9 @@
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
-{% endblock %}
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
