@@ -1,0 +1,89 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Dashboard - Library Management System{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Library Management Dashboard</h2>
+    
+    <!-- Dashboard Summary Cards -->
+    <div class="row">
+        <!-- Total Books Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Books</h5>
+                    <p class="card-text display-4">{{ total_books }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Members Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Members</h5>
+                    <p class="card-text display-4">{{ total_members }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Borrowed Books Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Books Borrowed</h5>
+                    <p class="card-text display-4">{{ books_borrowed }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overdue Books Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Overdue Books</h5>
+                    <p class="card-text display-4">{{ overdue_books }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Transactions Table -->
+    <div class="mt-5">
+        <h3>Recent Transactions</h3>
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Member</th>
+                    <th>Book</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in recent_transactions %}
+                    <tr>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.member.name }}</td>
+                        <td>{{ transaction.book.title }}</td>
+                        <td>{{ transaction.issue_date }}</td>
+                        <td>{{ transaction.due_date }}</td>
+                        <td>
+                            {% if transaction.return_date %}
+                                <span class="badge badge-success">Returned</span>
+                            {% elif transaction.due_date < today %}
+                                <span class="badge badge-danger">Overdue</span>
+                            {% else %}
+                                <span class="badge badge-warning">Borrowed</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

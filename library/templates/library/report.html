@@ -1,0 +1,12 @@
+<!-- library/templates/library/report.html -->
+{% extends 'library/base.html' %}
+
+{% block title %}Library Report{% endblock %}
+
+{% block content %}
+<h2>Library Report</h2>
+<p>Total Books: {{ total_books }}</p>
+<p>Total Members: {{ total_members }}</p>
+<p>Active Borrow Transactions: {{ total_transactions }}</p>
+<a class="btn btn-primary" href="{% url 'book_list' %}">Back to Book List</a>
+{% endblock %}
