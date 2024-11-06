@@ -122,21 +122,20 @@ library-management-system/
 │   │   ├── borrow_book.html       # Borrow-related templates
 |   |   ├── borrowed_book.html
 |   |   ├── return_book.html
-|   |   ├── login.html
-|   |   ├── register.html
+|   |   ├── login.html             # Login user template
+|   |   ├── register.html          # Register user template
 |   |   └── report.html
-│   ├── admin.py                   # Views for handling requests
+│   ├── admin.py                   
 │   ├── apps.py
 │   ├── forms.py
 │   ├── models.py
 │   ├── test.py
 │   ├── urls.py
-│   └── views.py
+│   └── views.py                   # Views for handling requests
 ├── library_management/            # Project folder with settings
 │   ├── settings.py                # Project settings
 │   ├── urls.py                    # URL routing
 │   └── wsgi.py
-├── db.sqlite3                     # SQLite database (for development)
 ├── manage.py                      # Django’s CLI tool
 └── README.md
 
