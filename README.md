@@ -107,18 +107,36 @@ To run this project, ensure you have the following installed:
 library-management-system/
 ├── library/                       # Main application folder
 │   ├── migrations/                # Database migrations
-│   ├── static/                    # Static files (CSS, JS)
 │   ├── templates/                 # HTML templates
 │   │   ├── base.html              # Base template for layout
-│   │   ├── index.html             # Home page
-│   │   ├── books/                 # Book-related templates
-│   │   ├── members/               # Member-related templates
-│   │   ├── borrow/                # Borrow-related templates
-│   └── views.py                   # Views for handling requests
+│   │   ├── landing_page.html      # Home page
+│   │   ├── dashboard.html
+│   │   ├── book_list.html         # Book-related templates
+│   │   ├── add_book.html
+│   │   ├── update_book.html
+│   │   ├── delete_book.html
+│   │   ├── member_list.html       # Member-related templates
+│   │   ├── add_member.html
+│   │   ├── update_member.html
+│   │   ├── delete_member.html
+│   │   ├── borrow_book.html       # Borrow-related templates
+|   |   ├── borrowed_book.html
+|   |   ├── return_book.html
+|   |   ├── login.html
+|   |   ├── register.html
+|   |   └── report.html
+│   ├── admin.py                   # Views for handling requests
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── test.py
+│   ├── urls.py
+│   └── views.py
 ├── library_management/            # Project folder with settings
 │   ├── settings.py                # Project settings
 │   ├── urls.py                    # URL routing
+│   └── wsgi.py
 ├── db.sqlite3                     # SQLite database (for development)
 ├── manage.py                      # Django’s CLI tool
-└── requirements.txt               # Python dependencies
+└── README.md
 
