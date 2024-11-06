@@ -138,23 +138,24 @@ library-management-system/
 │   └── wsgi.py
 ├── manage.py                      # Django’s CLI tool
 └── README.md
-
+```
 ## Screenshots
+
 ![Screenshot 2024-11-06 154550](https://github.com/user-attachments/assets/d659537b-1b73-4e6c-8a40-23e38f4e9ff3)
-
+  
 ![Screenshot 2024-11-06 154601](https://github.com/user-attachments/assets/5498d9bd-b8d1-459c-9606-ff1dd3fe75d9)
-
+   
 ![Screenshot 2024-11-06 154611](https://github.com/user-attachments/assets/1b7b841a-995b-496c-90da-1e6f48fd4dc6)
-
+   
 ![Screenshot 2024-11-06 154617](https://github.com/user-attachments/assets/e4cb96ad-55b8-49df-b17d-a25c57ba07d7)
-
+   
 ![Screenshot 2024-11-06 154631](https://github.com/user-attachments/assets/24a828aa-db63-4ebe-81d3-bd24a78c4036)
-
+   
 ![Screenshot 2024-11-06 154639](https://github.com/user-attachments/assets/62fabe3f-df41-4fd1-bcff-54cd24eb59ad)
-
+   
 ![Screenshot 2024-11-06 154728](https://github.com/user-attachments/assets/dba0779f-d871-446c-a667-644591cb6848)
-
+   
 ![Screenshot 2024-11-06 154737](https://github.com/user-attachments/assets/1908e6ea-d06e-4a4e-bdb3-79afb1ffcb95)
-
+   
 ![Screenshot 2024-11-06 154748](https://github.com/user-attachments/assets/8b3083ff-7b02-4684-8f8c-dfd0dcf93de1)
 
